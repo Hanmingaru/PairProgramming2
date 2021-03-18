@@ -17,6 +17,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     TextView music;
     Button play;
+    
+    Button mButtonPrev;
+    Button mButtonNext;
 
     MusicService musicService;
     MusicCompletionReceiver musicCompletionReceiver;
@@ -51,6 +54,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         musicCompletionReceiver = new MusicCompletionReceiver(this);
+        
+        
+        mButtonPrev = findViewById(R.id.buttonPrev);
+        mButtonNext = findViewById(R.id.buttonNext);
+        
+        mButtonPrev.setOnClickListener(v -> {
+            musicService.prevMusic();
+        });
+        mButtonNext.setOnClickListener(v -> {
+            musicService.nextMusic();
+        });
 
     }
 

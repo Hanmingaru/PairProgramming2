@@ -12,12 +12,14 @@ public class MusicPlayer implements MediaPlayer.OnCompletionListener {
 
     static final int[] MUSICPATH = new int[]{
             R.raw.mario,
-            R.raw.tetris
+            R.raw.tetris,
+            R.raw.gotechgo,
     };
 
     static final String[] MUSICNAME = new String[]{
             "Super Mario Brothers",
-            "Tetris"
+            "Tetris",
+            "Go Tech Go",
     };
 
     public MusicPlayer(MusicService service) {
@@ -58,6 +60,17 @@ public class MusicPlayer implements MediaPlayer.OnCompletionListener {
             player.start();
             musicStatus=1;
         }
+    }
+    
+    public void nextMusic() {
+        if (player != null) {
+        
+        }
+        // musicPlayer.nextMusic();
+    }
+    
+    public void prevMusic() {
+        // musicPlayer.prevMusic();
     }
 
     @Override

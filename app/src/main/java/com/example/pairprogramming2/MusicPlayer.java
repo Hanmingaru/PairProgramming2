@@ -1,6 +1,7 @@
 package com.example.pairprogramming2;
 
 import android.media.MediaPlayer;
+import android.util.Log;
 
 public class MusicPlayer implements MediaPlayer.OnCompletionListener {
 
@@ -64,13 +65,26 @@ public class MusicPlayer implements MediaPlayer.OnCompletionListener {
     
     public void nextMusic() {
         if (player != null) {
-        
+            musicIndex = (musicIndex +1) % MUSICNAME.length;
+            player.release();
+            player= null;
+            playMusic();
         }
         // musicPlayer.nextMusic();
     }
     
     public void prevMusic() {
-        // musicPlayer.prevMusic();
+        if (player != null) {
+            if(musicIndex - 1 < 0)
+                musicIndex = MUSICNAME.length-1;
+            else {
+                musicIndex = (musicIndex - 1) % MUSICNAME.length;
+            }
+            Log.d("MusicPlayer","Index is " + musicIndex);
+            player.release();
+            player= null;
+            playMusic();
+        }
     }
 
     @Override
